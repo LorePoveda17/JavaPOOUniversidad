@@ -6,21 +6,24 @@
 package bo.usfx.sis457.entidades;
 
 import bo.usfx.sis457.Utilitarios;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
  *
- * @author Marcelo
+ * @author Lorena Poveda
  */
 public class Alumno extends Persona {
     protected String CarnetUniversitario;
     protected int Semestre;
+    protected String[] Asignatura;
     
     public Alumno(String carnetUniversitario, int semestre, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
         super(carnetIdentidad, nombre, fechaNacimiento);
         this.CarnetUniversitario = carnetUniversitario;
         this.Semestre = semestre;
+        this.Asignatura = asignatura;
         //System.out.println("Se crea un Alumno");
     }
     
@@ -28,6 +31,7 @@ public class Alumno extends Persona {
         super();
         this.CarnetUniversitario = carnetUniversitario;
         this.Semestre = semestre;
+        this.Asignatura = asignatura;
         //System.out.println("Se crea un Alumno");
     }
     
@@ -47,6 +51,14 @@ public class Alumno extends Persona {
         this.Semestre = semestre;
     }
 
+    public String[] getAsignatura() {
+        return Asignatura;
+    }
+
+    public void setAsignatura(String[] Asignatura) {
+        this.Asignatura = Asignatura;
+    }
+    
     @Override
     public String toString() {
         return "Alumno{" 
@@ -54,7 +66,8 @@ public class Alumno extends Persona {
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", CarnetUniversitario=" + this.CarnetUniversitario 
-                + ", Semestre=" + this.Semestre + '}';
+                + ", CarnetUniversitario=" + this.CarnetUniversitario
+                + ", Semestre=" + this.Semestre
+                + ", Asignaturas=" + Arrays.toString(this.Asignatura) + '}';
     }
 }
